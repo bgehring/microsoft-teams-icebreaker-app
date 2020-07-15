@@ -41,6 +41,7 @@ namespace Icebreaker.Helpers.AdaptiveCards
         /// <returns>Pairup notification card</returns>
         public static string GetCard(string teamName, TeamsChannelAccount sender, TeamsChannelAccount recipient, string botDisplayName)
         {
+            var baseDomain = CloudConfigurationManager.GetSetting("AppBaseDomain");
             // Guest users may not have their given name specified in AAD, so fall back to the full name if needed
             var senderGivenName = string.IsNullOrEmpty(sender.GivenName) ? sender.Name : sender.GivenName;
             var recipientGivenName = string.IsNullOrEmpty(recipient.GivenName) ? recipient.Name : recipient.GivenName;

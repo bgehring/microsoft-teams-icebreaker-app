@@ -18,7 +18,7 @@
                                             "type": "TextBlock",
                                             "size": "Medium",
                                             "weight": "Bolder",
-                                            "text": "%matchUpCardTitleContent%",
+                                            "text": "%matchUpCardTitleContent2%",
                                             "wrap": true,
                                             "maxLines": 2
                                         }

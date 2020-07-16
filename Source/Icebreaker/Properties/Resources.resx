@@ -186,7 +186,7 @@
     <comment>Button text to pause pairings</comment>
   </data>
   <data name="ProposeMeetupButtonText" xml:space="preserve">
-    <value>Propose meetup</value>
+    <value>Propose Teams meetup</value>
     <comment>Button text to propose the meetup with the match of the user</comment>
   </data>
   <data name="ProposeOutlookMeetupButtonText" xml:space="preserve">

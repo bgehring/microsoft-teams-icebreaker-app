@@ -53,7 +53,8 @@ namespace Icebreaker.Helpers.AdaptiveCards
             var meetingContent = string.Format(Resources.MeetupContent, botDisplayName);
             var meetingLink = "https://teams.microsoft.com/l/meeting/new?subject=" + Uri.EscapeDataString(meetingTitle) + "&attendees=" + recipientUpn + "&content=" + Uri.EscapeDataString(meetingContent);
 
-            var outlookMeetingLink = "https://outlook.office.com/calendar/view/day";
+            //var outlookMeetingLink = "https://outlook.office.com/calendar/view/day";
+            var outlookMeetingLink = "https://outlook.office.com/owa/?path=/calendar/action/compose&subject=" + Uri.EscapeDataString(meetingTitle) + "&to=" + recipientUpn + "&body=" + Uri.EscapeDataString(meetingContent);
 
             var baseDomain = CloudConfigurationManager.GetSetting("AppBaseDomain");
             var matchUpCardTitleContent = Resources.MatchUpCardTitleContent;

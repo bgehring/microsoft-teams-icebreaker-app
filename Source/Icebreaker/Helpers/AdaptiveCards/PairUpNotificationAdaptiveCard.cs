@@ -53,6 +53,8 @@ namespace Icebreaker.Helpers.AdaptiveCards
             var meetingContent = string.Format(Resources.MeetupContent, botDisplayName);
             var meetingLink = "https://teams.microsoft.com/l/meeting/new?subject=" + Uri.EscapeDataString(meetingTitle) + "&attendees=" + recipientUpn + "&content=" + Uri.EscapeDataString(meetingContent);
 
+            var outlookMeetingLink = "https://outlook.office.com/calendar/view/day";
+
             var baseDomain = CloudConfigurationManager.GetSetting("AppBaseDomain");
             var matchUpCardTitleContent = Resources.MatchUpCardTitleContent;
             var meetupCardImageUrl = $"https://{baseDomain}/Content/pairup-card-image.png";
@@ -62,6 +64,7 @@ namespace Icebreaker.Helpers.AdaptiveCards
             var chatWithMatchButtonText = string.Format(Resources.ChatWithMatchButtonText, recipientGivenName);
             var pauseMatchesButtonText = Resources.PausePairingsButtonText;
             var proposeMeetupButtonText = Resources.ProposeMeetupButtonText;
+            var proposeOutlookMeetupButtonText = Resources.ProposeOutlookMeetupButtonText;
 
             var variablesToValues = new Dictionary<string, string>()
             {
@@ -73,7 +76,9 @@ namespace Icebreaker.Helpers.AdaptiveCards
                 { "chatWithMatchButtonText", chatWithMatchButtonText },
                 { "pauseMatchesButtonText", pauseMatchesButtonText },
                 { "proposeMeetupButtonText", proposeMeetupButtonText },
+                { "proposeOutlookMeetupButtonText", proposeOutlookMeetupButtonText },
                 { "meetingLink", meetingLink },
+                { "outlookMeetingLink", outlookMeetingLink },
                 { "personUpn", recipientUpn }
             };
 

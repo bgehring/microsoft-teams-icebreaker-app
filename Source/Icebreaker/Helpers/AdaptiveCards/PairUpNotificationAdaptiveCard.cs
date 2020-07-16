@@ -11,6 +11,7 @@ namespace Icebreaker.Helpers.AdaptiveCards
     using System.IO;
     using System.Web.Hosting;
     using Icebreaker.Properties;
+    using Microsoft.Azure;
     using Microsoft.Bot.Connector.Teams.Models;
 
     /// <summary>
@@ -52,7 +53,9 @@ namespace Icebreaker.Helpers.AdaptiveCards
             var meetingContent = string.Format(Resources.MeetupContent, botDisplayName);
             var meetingLink = "https://teams.microsoft.com/l/meeting/new?subject=" + Uri.EscapeDataString(meetingTitle) + "&attendees=" + recipientUpn + "&content=" + Uri.EscapeDataString(meetingContent);
 
+            var baseDomain = CloudConfigurationManager.GetSetting("AppBaseDomain");
             var matchUpCardTitleContent = Resources.MatchUpCardTitleContent;
+            var meetupCardImageUrl = $"https://{baseDomain}/Content/pairup-card-image.png";
             var matchUpCardMatchedText = string.Format(Resources.MatchUpCardMatchedText, recipient.Name);
             var matchUpCardContentPart1 = string.Format(Resources.MatchUpCardContentPart1, botDisplayName, teamName, recipient.Name);
             var matchUpCardContentPart2 = Resources.MatchUpCardContentPart2;
@@ -63,6 +66,7 @@ namespace Icebreaker.Helpers.AdaptiveCards
             var variablesToValues = new Dictionary<string, string>()
             {
                 { "matchUpCardTitleContent", matchUpCardTitleContent },
+                { "meetupCardImageUrl", meetupCardImageUrl },
                 { "matchUpCardMatchedText", matchUpCardMatchedText },
                 { "matchUpCardContentPart1", matchUpCardContentPart1 },
                 { "matchUpCardContentPart2", matchUpCardContentPart2 },
